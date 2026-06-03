@@ -27,8 +27,9 @@ export class AgentOrchestrator {
     this.criticAgent = new CriticAgent(llmProvider);
   }
 
-  async execute(goal: string): Promise<WorkflowState> {
+  async execute(goal: string, options?: { maxRetries?: number }): Promise<WorkflowState> {
     const workflow = new WorkflowState(goal);
+    const maxRetries = options?.maxRetries ?? 3;
 
     console.log('\n🚀 ============================================');
     console.log('🚀 AgentForge Workflow Started');
@@ -38,13 +39,33 @@ export class AgentOrchestrator {
     try {
       const context = await this.loadContext();
 
-      await this.planPhase(workflow, context);
+      // Phase 1 with retry
+      await this.executeWithRetry(
+        () => this.planPhase(workflow, context),
+        'Planning',
+        maxRetries
+      );
 
-      await this.researchPhase(workflow, context);
+      // Phase 2 with retry
+      await this.executeWithRetry(
+        () => this.researchPhase(workflow, context),
+        'Research',
+        maxRetries
+      );
 
-      await this.reasoningPhase(workflow, context);
+      // Phase 3 with retry
+      await this.executeWithRetry(
+        () => this.reasoningPhase(workflow, context),
+        'Reasoning',
+        maxRetries
+      );
 
-      await this.critiquePhase(workflow, context);
+      // Phase 4 with retry
+      await this.executeWithRetry(
+        () => this.critiquePhase(workflow, context),
+        'Critique',
+        maxRetries
+      );
 
       workflow.complete();
 
@@ -59,6 +80,32 @@ export class AgentOrchestrator {
       workflow.fail(error.message);
       return workflow;
     }
+  }
+
+  private async executeWithRetry(
+    fn: () => Promise<void>,
+    phaseName: string,
+    maxRetries: number
+  ): Promise<void> {
+    let lastError: Error | null = null;
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        await fn();
+        return; // Success
+      } catch (error: any) {
+        lastError = error;
+        console.warn(`⚠️  ${phaseName} phase failed (attempt ${attempt}/${maxRetries}): ${error.message}`);
+        
+        if (attempt < maxRetries) {
+          const delay = Math.min(1000 * Math.pow(2, attempt - 1), 10000); // Exponential backoff, max 10s
+          console.log(`   Retrying in ${delay}ms...`);
+          await new Promise(resolve => setTimeout(resolve, delay));
+        }
+      }
+    }
+
+    throw new Error(`${phaseName} phase failed after ${maxRetries} attempts: ${lastError?.message}`);
   }
 
   private async loadContext(): Promise<Record<string, any>> {

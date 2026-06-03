@@ -37,3 +37,6 @@ coverage/
 tmp/
 temp/
 *.tmp
+
+# Memory files (should not be committed)
+src

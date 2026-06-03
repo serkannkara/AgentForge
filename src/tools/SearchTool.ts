@@ -10,10 +10,27 @@ export class SearchTool extends BaseTool {
   description = 'Search for information on the web. Provide a query string.';
 
   async execute(params: ToolParams): Promise<ToolResult> {
+    // Input validation
+    if (!params || typeof params !== 'object') {
+      return this.failure('Invalid parameters: must be an object');
+    }
+
     const { query } = params;
 
-    if (!query || typeof query !== 'string') {
-      return this.failure('Query parameter is required and must be a string');
+    if (!query) {
+      return this.failure('Query parameter is required');
+    }
+
+    if (typeof query !== 'string') {
+      return this.failure('Query must be a string');
+    }
+
+    if (query.trim().length === 0) {
+      return this.failure('Query cannot be empty');
+    }
+
+    if (query.length > 500) {
+      return this.failure('Query too long (max 500 characters)');
     }
 
     await this.simulateDelay(800, 1500);

@@ -1,26 +1,25 @@
 /**
  * AgentForge
- * Production-ready agentic AI system with planning, research, reasoning, and critique
+ * Reference implementation of multi-agent AI orchestration
+ * 
+ * @packageDocumentation
  */
 
-export { BaseLLMProvider } from './llm/LLMProvider';
-export { MockLLMProvider } from './llm/MockLLMProvider';
-export { OpenAIProvider } from './llm/OpenAIProvider';
+// LLM Providers
+export { BaseLLMProvider, MockLLMProvider, OpenAIProvider } from './llm';
 
-export { BaseAgent } from './agents/BaseAgent';
-export { PlannerAgent } from './agents/PlannerAgent';
-export { ResearchAgent } from './agents/ResearchAgent';
-export { ReasoningAgent } from './agents/ReasoningAgent';
-export { CriticAgent } from './agents/CriticAgent';
+// Agents
+export { BaseAgent, PlannerAgent, ResearchAgent, ReasoningAgent, CriticAgent } from './agents';
 
-export { BaseTool } from './tools/Tool';
-export { SearchTool } from './tools/SearchTool';
-export { DocumentTool } from './tools/DocumentTool';
-export { AnalyticsTool } from './tools/AnalyticsTool';
+// Tools
+export { BaseTool, SearchTool, DocumentTool, AnalyticsTool } from './tools';
 
+// Memory
 export { MemoryStore } from './memory/MemoryStore';
 
+// Orchestration
 export { WorkflowState } from './orchestration/WorkflowState';
 export { AgentOrchestrator } from './orchestration/AgentOrchestrator';
 
+// Types
 export * from './types';

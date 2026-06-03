@@ -10,6 +10,9 @@ export class PlannerAgent extends BaseAgent {
   role = 'Strategic Planning and Task Decomposition';
 
   async execute(input: AgentInput): Promise<AgentOutput> {
+    // Validate input
+    this.validateInput(input);
+
     this.log('🎯 Starting planning phase...');
     this.log(`Goal: ${input.goal}`);
 

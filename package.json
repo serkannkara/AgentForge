@@ -4,6 +4,28 @@
   "description": "Reference implementation of multi-agent AI orchestration with planning, tool usage, memory, and workflow management",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./agents": {
+      "types": "./dist/agents/index.d.ts",
+      "require": "./dist/agents/index.js",
+      "import": "./dist/agents/index.js"
+    },
+    "./tools": {
+      "types": "./dist/tools/index.d.ts",
+      "require": "./dist/tools/index.js",
+      "import": "./dist/tools/index.js"
+    },
+    "./llm": {
+      "types": "./dist/llm/index.d.ts",
+      "require": "./dist/llm/index.js",
+      "import": "./dist/llm/index.js"
+    }
+  },
   "scripts": {
     "dev": "tsx src/examples/runGrowthStrategyExample.ts",
     "build": "tsc",
@@ -21,8 +43,7 @@
     "workflow",
     "orchestration",
     "typescript",
-    "reference-implementation",
-    "experimental"
+    "reference-implementation"
   ],
   "author": "Serkan Kara <serkankarraa@gmail.com>",
   "license": "MIT",
@@ -40,7 +61,8 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.1"
   },
   "engines": {
     "node": ">=18.0.0"

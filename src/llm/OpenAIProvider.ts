@@ -2,56 +2,63 @@ import { BaseLLMProvider } from './LLMProvider';
 import { LLMMessage, LLMResponse, LLMOptions } from '../types';
 
 /**
- * OpenAI Provider (placeholder - not yet implemented)
- * To use: npm install openai
+ * OpenAI Provider - Placeholder (Not yet implemented)
+ * 
+ * To implement:
+ * 1. npm install openai
+ * 2. Uncomment the implementation below
+ * 3. Remove the throw statement
  */
 export class OpenAIProvider extends BaseLLMProvider {
+  private apiKey: string;
+
   constructor(apiKey: string) {
     super();
     
-    if (!apiKey || apiKey === 'your_openai_api_key_here') {
-      throw new Error('OpenAIProvider requires a valid API key. Set OPENAI_API_KEY in .env file.');
+    if (!apiKey || apiKey.trim() === '' || apiKey === 'your_openai_api_key_here') {
+      throw new Error(
+        'OpenAIProvider requires a valid API key.\n' +
+        'Set OPENAI_API_KEY in your .env file or pass it directly.'
+      );
     }
-    
-    // API key validation passed - will be stored when implementation is complete
+
+    this.apiKey = apiKey;
   }
 
   async generate(_messages: LLMMessage[], options?: LLMOptions): Promise<LLMResponse> {
-    // Consume parameters to avoid unused warnings
     void this.mergeOptions(options);
+    void this.apiKey; // Suppress unused warning
 
-    // NOTE: This is a placeholder structure
-    // To use OpenAI, install: npm install openai
-    // Then import: import OpenAI from 'openai';
-    
     throw new Error(
-      'OpenAIProvider is not fully implemented. ' +
-      'To use it:\n' +
+      'OpenAIProvider is not yet implemented.\n\n' +
+      'To use OpenAI:\n' +
       '1. npm install openai\n' +
-      '2. Set OPENAI_API_KEY in .env\n' +
-      '3. Uncomment implementation in OpenAIProvider.ts\n\n' +
-      'For demo purposes, use MockLLMProvider (set LLM_PROVIDER=mock in .env)'
+      '2. Uncomment the implementation in OpenAIProvider.ts\n' +
+      '3. Set OPENAI_API_KEY in your .env file\n\n' +
+      'For now, use MockLLMProvider (no API key required).'
     );
 
-    /*
-    // UNCOMMENT THIS AFTER INSTALLING OPENAI PACKAGE:
+    /* IMPLEMENTATION (uncomment after npm install openai):
     
-    // Add back: private apiKey: string; field above
-    // Then store in constructor: this.apiKey = apiKey;
+    import OpenAI from 'openai';
     
-    const openai = new OpenAI({ apiKey: this.apiKey });
+    const client = new OpenAI({ apiKey: this.apiKey });
     
-    const response = await openai.chat.completions.create({
+    const response = await client.chat.completions.create({
       model: options?.model || 'gpt-4-turbo-preview',
-      messages: _messages,
-      temperature: options?.temperature,
-      max_tokens: options?.maxTokens,
+      messages: _messages as OpenAI.Chat.ChatCompletionMessageParam[],
+      temperature: options?.temperature ?? 0.7,
+      max_tokens: options?.maxTokens ?? 2000,
     });
 
     const choice = response.choices[0];
     
+    if (!choice.message?.content) {
+      throw new Error('OpenAI returned empty response');
+    }
+
     return {
-      content: choice.message?.content || '',
+      content: choice.message.content,
       usage: {
         promptTokens: response.usage?.prompt_tokens || 0,
         completionTokens: response.usage?.completion_tokens || 0,
