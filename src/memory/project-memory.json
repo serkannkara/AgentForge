@@ -1,0 +1,310 @@
+[
+  {
+    "id": "mem_default_1",
+    "type": "brand",
+    "content": {
+      "name": "Coverly",
+      "industry": "Language Learning",
+      "target_audience": "Adults learning new languages (18-45 years old)",
+      "core_values": [
+        "AI-powered personalization",
+        "Real-world conversation practice",
+        "Affordable learning",
+        "Engaging and fun"
+      ],
+      "unique_selling_points": [
+        "AI tutors that feel human",
+        "Practice real-life scenarios",
+        "Instant feedback on pronunciation and grammar"
+      ]
+    },
+    "timestamp": "2024-01-15T10:00:00.000Z",
+    "tags": [
+      "brand",
+      "language-learning"
+    ]
+  },
+  {
+    "id": "mem_default_2",
+    "type": "context",
+    "content": {
+      "market": "EdTech / Language Learning",
+      "competitors": [
+        "Duolingo",
+        "Babbel",
+        "Rosetta Stone",
+        "Busuu"
+      ],
+      "market_size": "$12B+ globally",
+      "growth_rate": "18% CAGR",
+      "key_trends": [
+        "AI integration accelerating",
+        "Mobile-first usage (85%)",
+        "Demand for conversational practice",
+        "Gamification driving engagement"
+      ]
+    },
+    "timestamp": "2024-01-15T10:05:00.000Z",
+    "tags": [
+      "context",
+      "market"
+    ]
+  },
+  {
+    "id": "mem_default_3",
+    "type": "insight",
+    "content": {
+      "title": "User Pain Points in Language Learning",
+      "insights": [
+        "78% of users want more conversation practice",
+        "Generic learning paths don't work for individual needs",
+        "Human tutoring is too expensive ($30-50/hr)",
+        "Limited real-time feedback on pronunciation"
+      ],
+      "source": "User surveys and app store review analysis",
+      "confidence": 0.95
+    },
+    "timestamp": "2024-01-15T10:10:00.000Z",
+    "tags": [
+      "insight",
+      "user-research"
+    ]
+  },
+  {
+    "type": "insight",
+    "content": {
+      "goal": "Analyze a language learning app and create an AI-native growth strategy",
+      "results": [
+        {
+          "agent": "PlannerAgent",
+          "summary": {
+            "strategy": {
+              "title": "AI-Native Growth Strategy for Language Learning App",
+              "overview": "Leverage AI to create a personalized, conversation-first learning experience that addresses core user pain points while driving viral growth through demonstrable results.",
+              "keyPillars": [
+                {
+                  "name": "AI Conversation Engine",
+                  "description": "Real-time AI tutors that simulate natural conversations in 50+ scenarios",
+                  "expectedImpact": "2-3x increase in user engagement and retention",
+                  "implementation": [
+                    "Deploy GPT-4 based conversation agents with personality",
+                    "Implement real-time pronunciation feedback using Whisper AI",
+                    "Create adaptive difficulty based on user performance",
+                    "Add emotional intelligence to conversations for natural flow"
+                  ]
+                },
+                {
+                  "name": "Hyper-Personalization",
+                  "description": "AI-driven learning paths that adapt in real-time to user progress and interests",
+                  "expectedImpact": "40% reduction in churn, 60% faster proficiency gains",
+                  "implementation": [
+                    "Build user modeling system tracking learning patterns",
+                    "Implement content recommendation engine",
+                    "Create dynamic curriculum that adjusts daily",
+                    "Personalize examples based on user interests/profession"
+                  ]
+                },
+                {
+                  "name": "Viral Growth Mechanics",
+                  "description": "AI-powered features that encourage organic sharing and word-of-mouth",
+                  "expectedImpact": "K-factor of 1.5-2.0, reducing CAC by 70%",
+                  "implementation": [
+                    "AI-generated shareable progress reports",
+                    "Challenge friends feature with AI referee",
+                    "Success stories showcasing before/after fluency",
+                    "Referral rewards tied to friend's achievements"
+                  ]
+                }
+              ],
+              "metrics": {
+                "northStar": "Weekly Active Conversations per User",
+                "leading": [
+                  "Daily Active Users",
+                  "Session Length",
+                  "Lesson Completion Rate"
+                ],
+                "lagging": [
+                  "3-Month Retention",
+                  "NPS Score",
+                  "Word-of-Mouth Coefficient"
+                ]
+              },
+              "timeline": {
+                "Month 1-2": "Launch AI conversation MVP with 10 scenarios",
+                "Month 3-4": "Deploy personalization engine and A/B test",
+                "Month 5-6": "Roll out viral mechanics and referral program",
+                "Month 7+": "Scale and optimize based on data"
+              }
+            },
+            "reasoning": "This strategy addresses the three core user pain points (lack of conversation practice, non-personalized content, high cost) while creating viral loops through demonstrable AI-powered results. The conversation-first approach differentiates from competitors and leverages the latest AI capabilities to deliver 10x better outcomes at 1/10th the cost of human tutors.",
+            "confidence": 0.88
+          },
+          "confidence": 0.9
+        },
+        {
+          "agent": "ResearchAgent",
+          "summary": {
+            "findings": [
+              {
+                "topic": "Language Learning Market Overview",
+                "insights": [
+                  "Market size: $12B+ globally, growing at 18% CAGR",
+                  "Key players: Duolingo (60M+ MAU), Babbel, Rosetta Stone",
+                  "AI integration is accelerating - conversational AI, speech recognition",
+                  "Mobile-first approach dominates with 85% of usage on apps"
+                ],
+                "sources": [
+                  "Market Research Report 2024",
+                  "App Analytics Data"
+                ],
+                "confidence": 0.9
+              },
+              {
+                "topic": "AI-Native Growth Opportunities",
+                "insights": [
+                  "Personalized AI tutors show 2.3x better retention vs traditional methods",
+                  "Real-time conversation practice is the #1 requested feature",
+                  "Gamification + AI = 40% increase in daily active users",
+                  "Voice AI quality is now indistinguishable from native speakers"
+                ],
+                "sources": [
+                  "EdTech Trends 2024",
+                  "User Behavior Studies"
+                ],
+                "confidence": 0.85
+              },
+              {
+                "topic": "User Pain Points",
+                "insights": [
+                  "Lack of real conversation practice (mentioned by 78% of users)",
+                  "Generic learning paths don't adapt to individual needs",
+                  "Limited feedback on pronunciation and grammar in context",
+                  "Expensive 1-on-1 tutoring ($30-50/hr) creates barrier"
+                ],
+                "sources": [
+                  "User Surveys",
+                  "App Store Reviews Analysis"
+                ],
+                "confidence": 0.95
+              }
+            ],
+            "methodology": "Multi-source research combining market reports, user data, and competitive analysis",
+            "timestamp": "2026-06-03T08:45:05.344Z"
+          },
+          "confidence": 0.85
+        },
+        {
+          "agent": "ReasoningAgent",
+          "summary": {
+            "findings": [
+              {
+                "topic": "Language Learning Market Overview",
+                "insights": [
+                  "Market size: $12B+ globally, growing at 18% CAGR",
+                  "Key players: Duolingo (60M+ MAU), Babbel, Rosetta Stone",
+                  "AI integration is accelerating - conversational AI, speech recognition",
+                  "Mobile-first approach dominates with 85% of usage on apps"
+                ],
+                "sources": [
+                  "Market Research Report 2024",
+                  "App Analytics Data"
+                ],
+                "confidence": 0.9
+              },
+              {
+                "topic": "AI-Native Growth Opportunities",
+                "insights": [
+                  "Personalized AI tutors show 2.3x better retention vs traditional methods",
+                  "Real-time conversation practice is the #1 requested feature",
+                  "Gamification + AI = 40% increase in daily active users",
+                  "Voice AI quality is now indistinguishable from native speakers"
+                ],
+                "sources": [
+                  "EdTech Trends 2024",
+                  "User Behavior Studies"
+                ],
+                "confidence": 0.85
+              },
+              {
+                "topic": "User Pain Points",
+                "insights": [
+                  "Lack of real conversation practice (mentioned by 78% of users)",
+                  "Generic learning paths don't adapt to individual needs",
+                  "Limited feedback on pronunciation and grammar in context",
+                  "Expensive 1-on-1 tutoring ($30-50/hr) creates barrier"
+                ],
+                "sources": [
+                  "User Surveys",
+                  "App Store Reviews Analysis"
+                ],
+                "confidence": 0.95
+              }
+            ],
+            "methodology": "Multi-source research combining market reports, user data, and competitive analysis",
+            "timestamp": "2026-06-03T08:45:06.376Z"
+          },
+          "confidence": 0.88
+        },
+        {
+          "agent": "CriticAgent",
+          "summary": {
+            "findings": [
+              {
+                "topic": "Language Learning Market Overview",
+                "insights": [
+                  "Market size: $12B+ globally, growing at 18% CAGR",
+                  "Key players: Duolingo (60M+ MAU), Babbel, Rosetta Stone",
+                  "AI integration is accelerating - conversational AI, speech recognition",
+                  "Mobile-first approach dominates with 85% of usage on apps"
+                ],
+                "sources": [
+                  "Market Research Report 2024",
+                  "App Analytics Data"
+                ],
+                "confidence": 0.9
+              },
+              {
+                "topic": "AI-Native Growth Opportunities",
+                "insights": [
+                  "Personalized AI tutors show 2.3x better retention vs traditional methods",
+                  "Real-time conversation practice is the #1 requested feature",
+                  "Gamification + AI = 40% increase in daily active users",
+                  "Voice AI quality is now indistinguishable from native speakers"
+                ],
+                "sources": [
+                  "EdTech Trends 2024",
+                  "User Behavior Studies"
+                ],
+                "confidence": 0.85
+              },
+              {
+                "topic": "User Pain Points",
+                "insights": [
+                  "Lack of real conversation practice (mentioned by 78% of users)",
+                  "Generic learning paths don't adapt to individual needs",
+                  "Limited feedback on pronunciation and grammar in context",
+                  "Expensive 1-on-1 tutoring ($30-50/hr) creates barrier"
+                ],
+                "sources": [
+                  "User Surveys",
+                  "App Store Reviews Analysis"
+                ],
+                "confidence": 0.95
+              }
+            ],
+            "methodology": "Multi-source research combining market reports, user data, and competitive analysis",
+            "timestamp": "2026-06-03T08:45:06.928Z"
+          },
+          "confidence": 0.75
+        }
+      ],
+      "completedAt": "2026-06-03T08:45:06.929Z"
+    },
+    "tags": [
+      "workflow",
+      "completed"
+    ],
+    "id": "mem_1780476306929_uk9muw52d",
+    "timestamp": "2026-06-03T08:45:06.929Z"
+  }
+]

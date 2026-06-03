@@ -1,0 +1,48 @@
+{
+  "name": "agentforge",
+  "version": "1.0.0",
+  "description": "Reference implementation of multi-agent AI orchestration with planning, tool usage, memory, and workflow management",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsx src/examples/runGrowthStrategyExample.ts",
+    "build": "tsc",
+    "start": "node dist/examples/runGrowthStrategyExample.js",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "agentic-ai",
+    "multi-agent",
+    "ai-agents",
+    "llm",
+    "planning",
+    "reasoning",
+    "workflow",
+    "orchestration",
+    "typescript",
+    "reference-implementation",
+    "experimental"
+  ],
+  "author": "Serkan Kara <serkankarraa@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/serkankara/AgentForge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/serkankara/AgentForge/issues"
+  },
+  "homepage": "https://github.com/serkankara/AgentForge#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
