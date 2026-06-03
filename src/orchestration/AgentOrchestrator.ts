@@ -11,8 +11,6 @@ import { MemoryStore } from '../memory/MemoryStore';
  * Coordinates the multi-agent workflow
  */
 export class AgentOrchestrator {
-  private llm: LLMProvider;
-  private tools: Tool[];
   private memoryStore: MemoryStore;
 
   private plannerAgent: PlannerAgent;
@@ -21,8 +19,6 @@ export class AgentOrchestrator {
   private criticAgent: CriticAgent;
 
   constructor(llmProvider: LLMProvider, tools: Tool[], memoryStore: MemoryStore) {
-    this.llm = llmProvider;
-    this.tools = tools;
     this.memoryStore = memoryStore;
 
     this.plannerAgent = new PlannerAgent(llmProvider);

@@ -2,24 +2,23 @@ import { BaseLLMProvider } from './LLMProvider';
 import { LLMMessage, LLMResponse, LLMOptions } from '../types';
 
 /**
- * OpenAI Provider (structure only - requires API key)
- * In production, install: npm install openai
+ * OpenAI Provider (placeholder - not yet implemented)
+ * To use: npm install openai
  */
 export class OpenAIProvider extends BaseLLMProvider {
-  private apiKey: string;
-  private baseURL: string = 'https://api.openai.com/v1';
-
   constructor(apiKey: string) {
     super();
-    this.apiKey = apiKey;
     
     if (!apiKey || apiKey === 'your_openai_api_key_here') {
       throw new Error('OpenAIProvider requires a valid API key. Set OPENAI_API_KEY in .env file.');
     }
+    
+    // API key validation passed - will be stored when implementation is complete
   }
 
-  async generate(messages: LLMMessage[], options?: LLMOptions): Promise<LLMResponse> {
-    const opts = this.mergeOptions(options);
+  async generate(_messages: LLMMessage[], options?: LLMOptions): Promise<LLMResponse> {
+    // Consume parameters to avoid unused warnings
+    void this.mergeOptions(options);
 
     // NOTE: This is a placeholder structure
     // To use OpenAI, install: npm install openai
@@ -37,13 +36,16 @@ export class OpenAIProvider extends BaseLLMProvider {
     /*
     // UNCOMMENT THIS AFTER INSTALLING OPENAI PACKAGE:
     
+    // Add back: private apiKey: string; field above
+    // Then store in constructor: this.apiKey = apiKey;
+    
     const openai = new OpenAI({ apiKey: this.apiKey });
     
     const response = await openai.chat.completions.create({
-      model: opts.model || 'gpt-4-turbo-preview',
-      messages: messages,
-      temperature: opts.temperature,
-      max_tokens: opts.maxTokens,
+      model: options?.model || 'gpt-4-turbo-preview',
+      messages: _messages,
+      temperature: options?.temperature,
+      max_tokens: options?.maxTokens,
     });
 
     const choice = response.choices[0];

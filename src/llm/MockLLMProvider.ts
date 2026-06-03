@@ -6,21 +6,11 @@ import { LLMMessage, LLMResponse, LLMOptions } from '../types';
  * Returns realistic responses without requiring an API key
  */
 export class MockLLMProvider extends BaseLLMProvider {
-  private responsePatterns: Map<string, (messages: LLMMessage[]) => string>;
-
   constructor() {
     super();
-    this.responsePatterns = new Map([
-      ['plan', this.generatePlanResponse],
-      ['research', this.generateResearchResponse],
-      ['reason', this.generateReasoningResponse],
-      ['critique', this.generateCritiqueResponse],
-    ]);
   }
 
-  async generate(messages: LLMMessage[], options?: LLMOptions): Promise<LLMResponse> {
-    const opts = this.mergeOptions(options);
-    
+  async generate(messages: LLMMessage[], _options?: LLMOptions): Promise<LLMResponse> {
     // Simulate API latency
     await this.simulateDelay(500, 1500);
 
@@ -38,24 +28,24 @@ export class MockLLMProvider extends BaseLLMProvider {
     };
   }
 
-  private generateResponse(userMessage: string, allMessages: LLMMessage[]): string {
+  private generateResponse(userMessage: string, _allMessages: LLMMessage[]): string {
     const lowerMessage = userMessage.toLowerCase();
 
     // Detect intent from message
     if (lowerMessage.includes('break') && lowerMessage.includes('task')) {
-      return this.generatePlanResponse(allMessages);
+      return this.generatePlanResponse();
     } else if (lowerMessage.includes('research') || lowerMessage.includes('gather')) {
-      return this.generateResearchResponse(allMessages);
+      return this.generateResearchResponse();
     } else if (lowerMessage.includes('synthesize') || lowerMessage.includes('analyze')) {
-      return this.generateReasoningResponse(allMessages);
+      return this.generateReasoningResponse();
     } else if (lowerMessage.includes('critique') || lowerMessage.includes('review')) {
-      return this.generateCritiqueResponse(allMessages);
+      return this.generateCritiqueResponse();
     }
 
-    return this.generateGenericResponse(allMessages);
+    return this.generateGenericResponse();
   }
 
-  private generatePlanResponse(messages: LLMMessage[]): string {
+  private generatePlanResponse(): string {
     return JSON.stringify({
       goal: "Analyze language learning app and create AI-native growth strategy",
       tasks: [
@@ -97,7 +87,7 @@ export class MockLLMProvider extends BaseLLMProvider {
     }, null, 2);
   }
 
-  private generateResearchResponse(messages: LLMMessage[]): string {
+  private generateResearchResponse(): string {
     return JSON.stringify({
       findings: [
         {
@@ -139,7 +129,7 @@ export class MockLLMProvider extends BaseLLMProvider {
     }, null, 2);
   }
 
-  private generateReasoningResponse(messages: LLMMessage[]): string {
+  private generateReasoningResponse(): string {
     return JSON.stringify({
       strategy: {
         title: "AI-Native Growth Strategy for Language Learning App",
@@ -196,7 +186,7 @@ export class MockLLMProvider extends BaseLLMProvider {
     }, null, 2);
   }
 
-  private generateCritiqueResponse(messages: LLMMessage[]): string {
+  private generateCritiqueResponse(): string {
     return JSON.stringify({
       overallAssessment: "Strong strategy with clear differentiation, but several areas need strengthening before execution",
       strengths: [
@@ -251,7 +241,7 @@ export class MockLLMProvider extends BaseLLMProvider {
     }, null, 2);
   }
 
-  private generateGenericResponse(messages: LLMMessage[]): string {
+  private generateGenericResponse(): string {
     return "I understand your request. As a mock LLM provider, I'm providing simulated responses. In a production environment, this would connect to a real LLM like GPT-4.";
   }
 

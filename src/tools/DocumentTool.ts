@@ -18,7 +18,7 @@ export class DocumentTool extends BaseTool {
 
     await this.simulateDelay(1000, 2000);
 
-    const analysis = this.getMockAnalysis(documentType, content);
+    const analysis = this.getMockAnalysis(documentType, String(content));
 
     return this.success({
       documentType,
@@ -27,7 +27,7 @@ export class DocumentTool extends BaseTool {
     });
   }
 
-  private getMockAnalysis(documentType: string, content: string): any {
+  private getMockAnalysis(documentType: string, _content: string): any {
     const baseAnalysis = {
       wordCount: Math.floor(Math.random() * 2000) + 500,
       readabilityScore: Math.floor(Math.random() * 30) + 70,
